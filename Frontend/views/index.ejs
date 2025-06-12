@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobscript</title>
+    <link rel="stylesheet" href="/css/style_051525_v01.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="/assets/images/logo.JPG" alt="Jobscript Logo">
+        </div>
+        <div class="tagline">It’s your career, version-controlled.</div>
+        <button class="signup-btn" id="openSignup">Sign Up</button>
+        <div class="header-icons">
+            <button class="icon-btn"><img src="/assets/images/contact.JPG" alt="Contact Us"></button>
+            <button class="icon-btn"><img src="/assets/images/settings.JPG" alt="Settings"></button>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="why-section">
+            <h2>Why Jobscript?</h2>
+            <p>
+                Jobscript is a job application tracker built for coders, by coders. Track applications,
+                interview stages, and more — all in a clean, intuitive interface inspired by developer tools.
+                As you log job posts, Jobscript highlights in-demand technologies, identifies gaps in your
+                toolkit, and even suggests areas to level up, so you’re always sharpening the right skills.
+            </p>
+
+            <div class="features">
+                <div class="feature">
+                    <img src="/assets/images/organize_app_logo.JPG" alt="Organize">
+                    <p>Organize Your Applications</p>
+                    <form action="/jobs"><button class="feature-btn">View Jobs</button></form>
+                </div>
+                <div class="feature">
+                    <img src="/assets/images/track_progress_logo.JPG" alt="Track">
+                    <p>Track Your Progress</p>
+                    <form action="/dashboard"><button class="feature-btn">View Dashboard</button></form>
+                </div>
+                <div class="feature">
+                    <img src="/assets/images/manage_contacts_logo.JPG" alt="Contacts">
+                    <p>Manage Your Work Contacts</p>
+                    <form action="/contacts"><button class="feature-btn">View Contacts</button></form>
+                </div>
+            </div>
+        </section>
+
+        <section class="login-card">
+            <% if (user) { %> 
+                <h2>
+                    Hi <%= user.user.first_name %>
+                    <form action="/sign-out" method="POST">
+                        <button type="signout" class="signout-btn">Sign Out</button>
+                    </form>
+                <h2>
+            <%} 
+            else { %> 
+                <h2>Sign in</h2>
+                <form action="/login" method="POST">
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <button type="submit" class="signin-btn">Sign In</button>
+                </form>
+                <div class="divider"><span>or</span></div>
+                <button class="social-btn google">Sign in with Google</button>
+                <button class="social-btn apple">Sign in with Apple</button>
+                <button class="social-btn microsoft">Sign in with Microsoft</button>
+            <%} %>
+        </section>
+    </main>
+
+<!-- Signup Modal -->
+    <div class="modal" id="signupModal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" id="closeSignup">&times;</span>
+            <h2>Sign Up</h2>
+            <form action="/register" method="POST">
+                <input type="text" name="first_name" placeholder="First Name" required>
+                <input type="text" name="last_name" placeholder="First Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit" class="signup-btn">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+<!-- Supabase configuration -->
+<!-- TBD -->
+
+<!-- Modal logic -->
+<script>
+    const openBtn = document.getElementById('openSignup');
+    const modal = document.getElementById('signupModal');
+    const closeBtn = document.getElementById('closeSignup');
+    openBtn.onclick = () => modal.style.display = 'block';
+    closeBtn.onclick = () => modal.style.display = 'none';
+    window.onclick = (e) => { if (e.target == modal) modal.style.display = 'none'; };
+</script>
+
+<!-- Signup form logic to send to supabase -->
+<!-- TBD -->
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

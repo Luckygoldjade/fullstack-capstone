@@ -1,0 +1,173 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    color: #2a2a2a;
+    background: #f6f6f6;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 500px;    
+    height: auto;    
+    margin-right: 0.5rem;
+}
+
+.logo h1 {
+    margin-left: 0.5rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.logo h1 span {
+    color: #009688;
+}
+
+.tagline {
+    font-size: 2rem;
+    font-weight: 200;
+    color: #007399;
+    flex: 1;
+    margin-left: 2rem;
+}
+
+.signup-btn {
+    background-color: #004d61;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    font-weight: bold;
+    border-radius: 6px;
+    box-shadow: 2px 2px 0px #ccc;
+}
+
+.header-icons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2rem;
+}
+
+.why-section {
+    max-width: 500px;
+}
+
+.why-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.why-section p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.features {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature {
+    text-align: center;
+    max-width: 120px;
+}
+
+.feature img {
+    height: 50px;
+    margin-bottom: 0.5rem;
+}
+
+.login-card {
+    background: #d4edf0;
+    padding: 2rem;
+    border: 6px solid #009688;
+    border-radius: 10px;
+    max-width: 300px;
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.1);
+}
+
+.login-card h2 {
+    text-align: center;
+}
+
+.login-card input {
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Add label styles here */
+  label {
+    display: block;
+    margin: 0 auto;
+    padding: 1%;
+  }
+
+.divider {
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 1rem;
+    position: relative;
+}
+
+.divider span {
+    background: #d4edf0;
+    padding: 0 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    right: 5%;
+    height: 1px;
+    background: #aaa;
+    z-index: 0;
+}
+
+.social-btn {
+    width: 100%;
+    padding: 0.6rem;
+    margin: 0.4rem 0;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.google { background: #db4437; }
+.apple { background: #000000; }
+.microsoft { background: #0078d4; }

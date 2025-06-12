@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jobscript Dashboard</title>
+  <link rel="stylesheet" href="/css/dashboard.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/js/chart.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <img src="/assets/images/logo.JPG" alt="Jobscript Logo">
+
+    </div>
+    <div class="tagline">It's your career, version-controlled.</div>
+    <div class="user-icons">
+      <button><img src="/assets/images/profile.JPG" height="80vw" alt="Profile"></button>
+      <button><img src="/assets/images/settings.JPG" height="80vw" alt="Settings"></button>
+    </div>
+  </header>
+
+  <nav class="tabs">
+  <button class="tab"><a href="/">Home</a></button>
+  <button class="tab active"><a href="/dashboard">Dashboard</a></button>
+  <button class="tab"><a href="/jobs">Job List</a></button>
+  <button class="tab"><a href="/jobs/create">Job Entry</a></button>
+  <button class="tab"><a href="/jobsskills">Job Skills</a></button>
+  <button class="tab"><a href="/skills">User Skills</a></button>
+  <button class="tab"><a href="/contacts">User Contacts</a></button>
+</nav>
+
+  <main class="dashboard">
+    <!-- job list -->
+    <div class="card job-apps">
+      <h2>Job List <a href="/jobs">View all</a></h2>
+      <table>
+        <thead>
+          <tr><th>Position</th><th>Company</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <% jobApps.forEach(app => { %>
+            <tr>
+              <td><%= app.title %></td>
+              <td><%= app.company.name %></td>
+              <td><span class="status"><%= app.status %></span></td>
+            </tr>
+          <% }) %>
+
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Applications by Status -->
+    <div class="card chart-card">
+      <h2>Applications by Status</h2>
+      <canvas id="statusChart" width="200" height="200"></canvas>
+      <ul class="legend">
+        <% Object.entries(statusCounts).forEach(([key, value]) => { %>
+          <li><span class="legend-color <%= key.toLowerCase().replace(' ', '-') %>"></span> : <%= value %></li>
+        <% }) %>
+      </ul>
+    </div>
+
+    <!-- contacts by company -->
+    <div class="card contacts">
+      <h2>Contacts <a href="/contacts">View all</a></h2>
+      <ul>
+        <% contacts.forEach(contact => { %>
+          <li><%= contact.profiles.first_name %>, <%= contact.profiles.last_name %>: <%= contact.profiles.email %></li>
+        <% }) %>
+      </ul>
+    </div>
+
+    <!-- skills -->
+    <div class="card skills">
+      <h2>Skills <a href="/skills">View all</a></h2>
+      <div class="skills-list">
+        <% skills.forEach(skill => { %>
+          <span><%= skill.skills.skill_name %> ( <%= skill.rating %> )</span>
+        <% }) %>
+      </div>
+    </div>
+
+    <!-- learning -->
+    <div class="card learning">
+      <h2>Suggested Learning</h2>
+      <% 
+        // learning comes from backend.
+        // It is calculated using:
+        // All skills from public.skills
+        // MINUS those in public.usersskills where rating is already high such as rating >= 4
+      %>
+
+      <% learning.forEach(item => { %>
+        <div class="learning-item">
+          <span><%= item %></span>
+          <div class="progress">
+            <!-- The className connects to your CSS bar style such as .ios, .assembly, .cobol -->
+            <div class="bar <%= item.className %>"></div>
+          </div>
+        </div>
+      <% }) %>
+
+    </div>
+  </main>
+
+  <script>
+    window.statusCounts = <%- JSON.stringify(statusCounts) %>;
+  </script>
+  <script src="js/donutchart.js"></script>
+
+</body>
+</html>

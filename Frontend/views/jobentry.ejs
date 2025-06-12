@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Job Script</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="css/main.css"> -->
+    <!-- <script src="main.js"></script> -->
+</head>
+
+<body>
+    <header>
+    <h1>Job Script</h1>
+    </header>
+
+    <nav class="global">
+        <a href="index.html">Home</a>
+        <a href="contacts.html">Contacts</a>
+        <a href="jobentry.html">Job Entry</a>
+        <a href="jobstatus.html">Job Status</a>
+        <a href="skills.html">Skills</a>
+        <a href="companies.html">Companies</a>
+    </nav>
+
+    <main>
+
+    <section>
+    <h2>Job Entry</h2>
+    <article>
+    <p>
+        Add to your job listing here. Start at the top and click through the form. Job Title, Salary, Benefits, Location, Url, Description.
+    </p>
+
+    <!-- The action attribute refers to a script file, or to a route for the data. The method refers to a GET or POST request. -->
+    <form action="/jobs" method="POST" class="sideByside">
+        <fieldset>
+            <!-- Required questions for this legend -->
+            <legend>Add your Job Title, Salary, Benefits, Location, Url, Description</legend>
+
+            <!-- It is best practice to require the title name. -->
+            <!-- SQL column name will reference name attribute. -->
+            <label for="title" class="required">Job Title</label>
+                <input type="text" 
+                name="title" 
+                id="title" 
+                size="30" 
+                maxlength="100" 
+                required placeholder="Job Title" 
+                autofocus/>
+
+            <!-- Dropdown menu for suggested titles -->
+            <label for="suggested-titles">Suggested Titles</label>
+            <select name="suggested-titles" id="suggested-titles">
+                <option value="" disabled selected>Select a suggested title</option>
+                <option value="Software Engineer">Software Engineer</option>
+                <option value="Project Manager">Project Manager</option>
+                <option value="Data Analyst">Data Analyst</option>
+                <option value="Web Developer">Web Developer</option>
+                <option value="UX Designer">UX Designer</option>
+            </select>
+
+
+
+            <!-- Require the job salary. -->
+            <!-- SQL column name will reference name attribute. -->
+            <label for="salary" class="required">Job Salary</label>
+                <input type="varchar"
+                pattern="^[0-9]+(\.[0-9]{1,2})?$"
+                name="salary" 
+                id="salary" 
+                size="30" 
+                maxlength="100" 
+                required placeholder="Job Salary" 
+                min="0" step="0.01"/>
+
+            <!-- Job Status -->
+            <!-- SQL column name will reference name attribute. -->
+            <label for="jobstatus" class="required">Job Status</label>
+                <input type="varchar"
+                name="jobstatus" 
+                id="jobstatus" 
+                size="30" 
+                maxlength="100" 
+                required placeholder="Job Status" />
+
+            <!-- Dropdown menu for suggested job statuses -->
+            <label for="suggested-job-statuses">Suggested Job Statuses</label>
+            <select name="suggested-job-statuses" id="suggested-job-statuses">
+                <option value="" disabled selected>Select a suggested job status</option>
+                <option value="Open">Open</option>
+                <option value="Closed">Closed</option>
+                <option value="In Progress">In Progress</option>
+            </select>
+
+            <!-- jobs benefits -->
+            <label for="benefits">Job Benefits</label>
+                <input type="text" 
+                name="benefits" 
+                id="benefits" 
+                size="30" 
+                maxlength="100" 
+                placeholder="Health insurance, retirement plan"/>
+
+            <!-- Dropdown menu for suggested benefits -->
+            <label for="suggested-benefits">Suggested Benefits</label>
+            <select name="suggested-benefits" id="suggested-benefits">
+                <option value="" disabled selected>Select a suggested benefit</option>
+                <option value="Health insurance">Health insurance</option>
+                <option value="Retirement plan">Retirement plan</option>
+                <option value="Paid time off">Paid time off</option>
+                <option value="Flexible hours">Flexible hours</option>
+                <option value="Remote work">Remote work</option>
+            </select>
+
+            <!-- Job location. -->
+            <!-- SQL column name will reference name attribute. -->
+            <label for="location">Job Location</label>
+                <input type="text" 
+                name="location" 
+                id="location" 
+                size="30" 
+                maxlength="100" 
+                required placeholder="Job Location" />
+
+
+            <!-- Dropdown menu for suggested locations -->
+            <label for="suggested-locations">Suggested Locations</label>
+            <select name="suggested-locations" id="suggested-locations">
+                <option value="" disabled selected>Select a suggested location</option>
+                <option value="New York">New York</option>
+                <option value="San Francisco">San Francisco</option>
+                <option value="Los Angeles">Los Angeles</option>
+                <option value="Chicago">Chicago</option>
+                <option value="Seattle">Seattle</option>
+                <option value="Austin">Austin</option>
+            </select>
+
+            <!-- Job URL. -->
+            <!-- SQL column name will reference name attribute. -->
+            <label for="url" class="required">Job URL</label>
+                <input type="url" 
+                name="url" 
+                id="url" 
+                size="30" 
+                maxlength="100" 
+                required placeholder="Job URL" />
+
+            <!-- Job Skills -->
+            <label for="skill_name">Job Skills</label>
+                <input type="text" 
+                name="skill_name" 
+                id="skill_name" 
+                size="30" 
+                maxlength="100" 
+                placeholder="JavaScript, Python, SQL"/>
+
+            <!-- Dropdown menu for suggested skills -->
+            <label for="suggested-skills">Suggested Skills</label>
+            <select name="suggested-skills" id="suggested-skills">
+                <option value="" disabled selected>Select a suggested skill</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Python">Python</option>
+                <option value="SQL">SQL</option>
+                <option value="Java">Java</option>
+                <option value="C++">C++</option>
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="React">React</option>
+                <option value="Node.js">Node.js</option>
+                <option value="Django">Django</option>
+                <option value="Flask">Flask</option>
+                <option value="Ruby">Ruby</option>
+                <option value="PHP">PHP</option>
+                <option value="Swift">Swift</option>
+                <option value="Kotlin">Kotlin</option>
+                <option value="Go">Go</option>
+                <option value="Rust">Rust</option>
+                <option value="TypeScript">TypeScript</option>
+                <option value="GraphQL">GraphQL</option>
+                <option value="Docker">Docker</option>
+                <option value="Kubernetes">Kubernetes</option>
+                <option value="AWS">AWS</option>
+                <option value="Azure">Azure</option>
+                <option value="Google Cloud">Google Cloud</option>
+                <option value="Machine Learning">Machine Learning</option>
+                <option value="Data Analysis">Data Analysis</option>
+                <option value="Cybersecurity">Cybersecurity</option>
+                <option value="DevOps">DevOps</option>
+                <option value="Agile">Agile</option>
+                <option value="Scrum">Scrum</option>
+                <option value="Project Management">Project Management</option>
+                <option value="UI/UX Design">UI/UX Design</option>
+                <option value="SEO">SEO</option>
+                <option value="Content Management">Content Management</option>
+                <option value="Social Media Marketing">Social Media Marketing</option>
+                <option value="Digital Marketing">Digital Marketing</option>
+                <option value="Sales">Sales</option>
+                <option value="Customer Service">Customer Service</option>
+                <option value="Business Analysis">Business Analysis</option>
+                <option value="Data Science">Data Science</option>
+                <option value="Artificial Intelligence">Artificial Intelligence</option>
+                <option value="Blockchain">Blockchain</option>
+                <option value="Internet of Things">Internet of Things</option>
+            </select>
+
+            <!-- Job Tags -->
+            <!-- SQL column name will reference name attribute. -->
+            <label for="tag_name">Job Tags</label>
+                <input type="text" 
+                name="tag_name" 
+                id="tag_name" 
+                size="30" 
+                maxlength="100" 
+                placeholder="JavaScript, Python, SQL"/>
+
+            <!-- Dropdown menu for suggested tags -->
+            <label for="suggested-tags">Suggested Tags</label>
+            <select name="suggested-tags" id="suggested-tags">
+                <option value="" disabled selected>Select a suggested tag</option>
+                <option value="Remote">Remote</option>
+                <option value="Full-Time">Full-Time</option>
+                <option value="Part-Time">Part-Time</option>
+                <option value="Contract">Contract</option>
+                <option value="Entry-Level">Entry-Level</option>
+                <option value="Mid-Level">Mid-Level</option>
+                <option value="Senior-Level">Senior-Level</option>
+                <option value="Flexible Hours">Flexible Hours</option>
+                <option value="High Salary">High Salary</option>
+                <option value="Internship">Internship</option>
+                <option value="Intern">Intern</option>
+                <option value="Fellowship">Fellowship</option>
+                <option value="Volunteer">Volunteer</option>
+                <option value="Non-Profit">Non-Profit</option>
+                <option value="Startup">Startup</option>
+                <option value="Established Company">Established Company</option>
+                <option value="Government">Government</option>
+                <option value="Non-Governmental Organization (NGO)">Non-Governmental Organization (NGO)</option>
+                <option value="Freelance">Freelance</option>
+                <option value="Consultant">Consultant</option>
+                <option value="Temporary">Temporary</option>
+                <option value="Seasonal">Seasonal</option>
+                <option value="Project-Based">Project-Based</option>
+                <option value="Commission-Based">Commission-Based</option>
+                <option value="Equity-Based">Equity-Based</option>
+                <option value="Remote Work">Remote Work</option>
+                <option value="On-Site Work">On-Site Work</option>
+                <option value="Hybrid Work">Hybrid Work</option>
+                <option value="Work from Home">Work from Home</option>
+                <option value="Work-Life Balance">Work-Life Balance</option>
+                <option value="Career Growth">Career Growth</option>
+                <option value="Professional Development">Professional Development</option>
+                <option value="Mentorship">Mentorship</option>
+                <option value="Networking Opportunities">Networking Opportunities</option>
+                <option value="Diversity and Inclusion">Diversity and Inclusion</option>
+                <option value="Company Culture">Company Culture</option>
+                <option value="Team Collaboration">Team Collaboration</option>
+                <option value="Innovation and Creativity">Innovation and Creativity</option>
+                <option value="Work Environment">Work Environment</option>
+                <option value="Job Security">Job Security</option>
+                <option value="Job Stability">Job Stability</option>
+                <option value="Job Satisfaction">Job Satisfaction</option>
+                <option value="Job Fulfillment">Job Fulfillment</option>
+                <option value="Job Growth">Job Growth</option>
+                <option value="Job Opportunities">Job Opportunities</option>
+                <option value="Job Market">Job Market</option>
+                <option value="Job Trends">Job Trends</option>
+                <option value="Job Demand">Job Demand</option>
+                <option value="Job Supply">Job Supply</option>
+                <option value="Job Competition">Job Competition</option>
+                <option value="Job Search">Job Search</option>
+                <option value="Job Application">Job Application</option>
+                <option value="Job Interview">Job Interview</option>
+                <option value="Job Offer">Job Offer</option>
+                <option value="Job Acceptance">Job Acceptance</option>
+                <option value="Job Rejection">Job Rejection</option>
+                <option value="Job Negotiation">Job Negotiation</option>
+                <option value="Job Relocation">Job Relocation</option>
+                <option value="Job Transfer">Job Transfer</option>
+                <option value="Job Promotion">Job Promotion</option>
+                <option value="Job Title Change">Job Title Change</option>
+                <option value="Job Description Change">Job Description Change</option>
+                <option value="Job Responsibilities Change">Job Responsibilities Change</option>
+                <option value="Job Duties Change">Job Duties Change</option>
+                <option value="Job Skills Change">Job Skills Change</option>
+                <option value="Job Tags Change">Job Tags Change</option>
+            </select>
+
+
+
+
+
+            <!-- Job description. -->
+            <!-- Set limits for this box to help avoid script injections. -->
+            <label for="delInstruct">Description</label>
+                <textarea name="delInstruct" 
+                id="delInstruct" 
+                minlenth="3" 
+                maxlenth="250" 
+                rows="5"
+                cols="35"
+                placeholder="Write 250 characters or less."></textarea>
+        </fieldset>
+
+
+
+          <!-- Use the button element to send the data -->
+            <button type="submit">Submit review</button>
+    
+    </form>
+    </article>
+</section>
+
+</main>
+    <footer>
+        <p>
+        &copy; 2025 Jacky Kuang, Katherine Jaeger and Tony Chan
+        </p>
+    </footer>
+
+</body>
+</html>

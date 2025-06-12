@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Job Applications</title>
+  <link rel="stylesheet" href="/css/applications.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <img src="/assets/images/logo.JPG" alt="Jobscript Logo">
+    </div>
+    <div class="tagline">It's your career, version-controlled.</div>
+    <div class="user-icons">
+      <button><img src="/assets/images/profile.JPG" height="80vw" alt="Mail"></button>
+      <button><img src="/assets/images/settings.JPG" height="80vw" alt="Settings"></button>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab"><a href="/">Home</a></button>
+    <button class="tab"><a href="/dashboard">Dashboard</a></button>
+    <button class="tab active"><a href="/jobs">Job List</a></button>
+    <button class="tab"><a href="/jobs/create">Job Entry</a></button>
+    <button class="tab"><a href="/jobsskills">Job Skills</a></button>
+    <button class="tab"><a href="/skills">User Skills</a></button>
+    <button class="tab"><a href="/contacts">User Contacts</a></button>
+  </nav>
+
+  <main class="applications-card">
+    <h2>Job Applications</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Position</th>
+          <th>Company</th>
+          <th>Status</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% applications.forEach(app => { %>
+          <tr data-job-id="<%= app.id %>"
+              data-title="<%= app.title %>"
+              data-status="<%= app.status %>"
+              data-salary="<%= app.salary %>"
+              data-benefits="<%= app.benefits %>"
+              data-location="<%= app.location %>"
+              data-url="<%= app.url %>"
+              data-description="<%= app.description %>"
+              data-date-posted="<%= app.date_posted %>"
+              data-company="<%= app.company.name %>"
+              data-skills="<%= app.skills.map(skill => Object.keys(skill)).join(", ") %>"
+              data-tags="<%= app.tags.join(", ") %>"
+              >
+            <!-- template variable: applications -->
+            <td><%= app.title %></td>
+            <td><%= app.company.name %></td>
+            <td>
+              <span class="status <%= app.status.toLowerCase().replace(/\s+/g, '-') %>">
+                <%= app.status %>
+              </span>
+            </td>
+            <td>
+              <button onclick="openEditModal(<%= app.id %>)">
+                <img src="/assets/images/edit.JPG" alt="Edit">
+              </button>
+            </td>
+            <td>
+              <form action="/api/jobs/delete/<%= app.id %>" method="POST" style="display:inline;">
+                <!-- backend route for deleting jobs is submits POST /applications/delete/:id -->
+                <button type="submit"
+                        onclick="return confirm('Are you sure you want to delete this job?')"
+                        style="background:none; border:none;">
+                  <img src="/assets/images/delete.JPG" alt="Delete">
+                </button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </main>
+
+  <!-- edit job modal -->
+  <div id="editModalOverlay" class="modal-overlay"></div>
+  <div id="editModal" class="modal" style="display:none;">
+    <h2>Edit Job Application</h2>
+
+    <!-- backend route for updating jobs is POST /jobs/update -->
+    <!-- when save changes button is clicked -->
+    <!-- name= matches table columns and database fields -->
+    <form id="editJobForm" method="POST" action="/api/jobs/update">
+      <input type="hidden" name="id" id="edit_id" /> <!-- name= included so Express/Supabase can read it -->
+
+      <label for="edit_title">Job Title</label>
+      <input type="text" name="title" id="edit_title" required>
+
+      <label for="edit_status" class="required">Status</label>
+      <input type="text" name="status" id="edit_status" required placeholder="Applied" list="suggested-status"/>
+      <datalist id="suggested-status">
+        <option value="">--Select--</option>
+        <option value="Applied">Applied</option>
+        <option value="Interview">Interview</option>
+        <option value="2nd Interview">2nd Interview</option>
+        <option value="Offer">Offer</option>
+        <option value="Rejected">Rejected</option>
+      </datalist >
+
+      <label for="edit_salary" class="required">Salary</label>
+      <input type="text" name="salary" id="edit_salary" required placeholder="Salary"/>
+
+      <label for="edit_benefits">Benefits</label>
+      <input type="text" name="benefits" id="edit_benefits" placeholder="e.g., Health insurance, PTO" list="suggested-benefits" multiple/>
+      <datalist id="suggested-benefits">
+        <option value="">--Select--</option>
+        <option value="Health insurance">Health insurance</option>
+        <option value="Retirement plan">Retirement plan</option>
+        <option value="Paid time off">Paid time off</option>
+        <option value="Flexible hours">Flexible hours</option>
+        <option value="Remote work">Remote work</option>
+      </datalist>
+
+      <label for="edit_location">Location</label>
+      <input type="text" name="location" id="edit_location">
+
+      <label for="edit_url">Job URL</label>
+      <input type="text" name="url" id="edit_url">
+
+      <label for="edit_description">Description</label>
+      <textarea name="description" id="edit_description"></textarea>
+
+      <label for="edit_date_posted">Date Posted</label>
+      <input type="date" name="date_posted" id="edit_date_posted">
+
+      <label for="edit_company_name">Company</label>
+      <input type="text" name="company_name" id="edit_company_name" list="suggested-companies"/>
+      <datalist id="suggested-companies">
+        <% companies.forEach(function(company) 
+          { %> <option value="<%= company.name %>"> <% })
+        %>
+      </datalist>
+
+      <label for="edit_skills">Skills (hold Ctrl to select multiple)</label>
+      <select name="skills" id="edit_skills" multiple>
+        <% skills.forEach(function(skill) { %>
+          <option value="<%= skill.skill_name %>"><%= skill.skill_name %></option>
+        <% }); %>
+      </select>
+
+      <label for="edit_tags">Tags (hold Ctrl to select multiple)</label>
+      <select name="tags" id="edit_tags" multiple>
+        <% tags.forEach(function(tag) { %>
+          <option value="<%= tag.tag_id %>"><%= tag.tag_name %></option>
+        <% }); %>
+          </select>
+
+      <!-- submit button at the bottom of the modal -->
+      <div class="modal-buttons">
+        <button type="button" onclick="closeEditModal()">Cancel</button>
+        <button type="submit">Save Changes</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // open edit modal when edit button is clicked
+    // close modal when cancel button is clicked
+    function openEditModal(jobId) {
+      const row = document.querySelector(`[data-job-id='${jobId}']`);
+      if (!row) return;
+
+      // populate modal form with values from row
+      document.getElementById('edit_id').value = jobId;
+      document.getElementById('edit_title').value = row.dataset.title;
+      document.getElementById('edit_status').value = row.dataset.status;
+      document.getElementById('edit_salary').value = row.dataset.salary;
+      document.getElementById('edit_benefits').value = row.dataset.benefits;
+      document.getElementById('edit_location').value = row.dataset.location;
+      document.getElementById('edit_url').value = row.dataset.url;
+      document.getElementById('edit_description').value = row.dataset.description;
+      document.getElementById('edit_date_posted').value = row.dataset.datePosted;
+      document.getElementById('edit_company_name').value = row.dataset.company;
+      document.getElementById('edit_skills').value = row.dataset.skills;
+      document.getElementById('edit_tags').value = row.dataset.tags;
+
+      // show modal and overlay
+      document.getElementById('editModal').style.display = 'block';
+      document.getElementById('editModalOverlay').style.display = 'block';
+    }
+
+    function closeEditModal() {
+      document.getElementById('editModal').style.display = 'none';
+      document.getElementById('editModalOverlay').style.display = 'none';
+    }
+
+    // close modal if clicked outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('editModal');
+      const overlay = document.getElementById('editModalOverlay');
+      if (event.target === overlay) {
+        closeEditModal();
+      }
+    };
+  </script>
+
+
+
+</body>
+</html>

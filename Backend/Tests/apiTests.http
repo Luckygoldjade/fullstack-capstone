@@ -1,0 +1,232 @@
+@token= "eyJhbGciOiJIUzI1NiIsImtpZCI6ImU5SHdiN3BkSVlZd0taTmYiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2xtem5kdHFqaXBwZWV0c2Via2t3LnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiJiMDIyZWNlMS00ODZiLTRiNWUtOWEzOC0yYjFiMDdiZmIyNjYiLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzQ3NjcwNzAxLCJpYXQiOjE3NDc2NjcxMDEsImVtYWlsIjoibmlrZWc4OTU1NUBjeWx1bmEuY29tIiwicGhvbmUiOiIiLCJhcHBfbWV0YWRhdGEiOnsicHJvdmlkZXIiOiJlbWFpbCIsInByb3ZpZGVycyI6WyJlbWFpbCJdfSwidXNlcl9tZXRhZGF0YSI6eyJlbWFpbCI6Im5pa2VnODk1NTVAY3lsdW5hLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInN1YiI6ImIwMjJlY2UxLTQ4NmItNGI1ZS05YTM4LTJiMWIwN2JmYjI2NiJ9LCJyb2xlIjoiYXV0aGVudGljYXRlZCIsImFhbCI6ImFhbDEiLCJhbXIiOlt7Im1ldGhvZCI6InBhc3N3b3JkIiwidGltZXN0YW1wIjoxNzQ3NjY3MTAxfV0sInNlc3Npb25faWQiOiIwN2RmMjI5Yi1hMmQ0LTQyNWQtOTM1OS1jNzQwMmI4MjJjMTYiLCJpc19hbm9ueW1vdXMiOmZhbHNlfQ.qb2a5rOE2DWiHvrVbWkY77-h1kDvgYJIruzw_u7Ww6w"
+
+###
+
+POST http://localhost:3000/register
+Content-Type: application/x-www-form-urlencoded
+
+email=53n4np5bj9@zudpck.com&password=testing&first_name=test&last_name=testing
+
+###
+
+POST http://localhost:3000/login
+Content-Type: application/x-www-form-urlencoded
+
+email=nikeg89555@cyluna.com&password=testing123
+
+###
+
+POST http://localhost:3000/password-reset-request
+Content-Type: application/x-www-form-urlencoded
+
+email=nikeg89555cyluna.com
+
+###
+
+POST http://localhost:3000/update-password
+Content-Type: application/json
+
+{  
+    "token": {{token}},
+    "password": "testing123"
+}
+
+
+### Jobs Api
+
+###
+GET  http://localhost:3000/api/jobs
+Content-Type: application/json
+
+{
+    "token": {{token}}
+}
+
+###
+POST  http://localhost:3000/api/jobs
+Content-Type: application/json
+
+{
+    "token": {{token}},
+    "title": "Engineer", 
+    "salary": "$90,000 - 110,000",
+    "benefits": "Test", 
+    "location": "NYC", 
+    "url": "apple.com/data_engineer", 
+    "description": "SQL", 
+    "date_posted": "3/18/25",
+    "company_id": 1,
+    "skills": {"R": 5, "Python": 5},
+    "tags": ["GCP", "FAANG"]
+}
+
+###
+DELETE   http://localhost:3000/api/jobs
+Content-Type: application/json
+
+{
+    "token": {{token}},
+    "id": [65]
+}
+
+###
+PATCH   http://localhost:3000/api/jobs
+Content-Type: application/json
+
+{
+    "token": {{token}},
+    "id": 80,
+    "title": "Frontend Dev", 
+    "salary": "$90,000 - 110,000",
+    "benefits": "Vacation Day", 
+    "location": "NYC", 
+    "url": "apple.com/data_analyst", 
+    "description": "SQL", 
+    "date_posted": "3/18/25",
+    "company_id": 1,
+    "skills": {"TypeScript": 5, "CSS": 5},
+    "tags": ["AWS"]
+}
+
+### Skills Api
+
+###
+GET  http://localhost:3000/api/skills
+Content-Type: application/json
+
+{
+    "token": {{token}}
+}
+
+###
+POST  http://localhost:3000/api/skills
+Content-Type: application/json
+
+{
+    "token": {{token}},
+    "skill_name": "C++"
+}
+
+###
+DELETE   http://localhost:3000/api/skills
+Content-Type: application/json
+
+{
+    "token": {{token}},
+    "id": [14]
+}
+
+###
+PATCH   http://localhost:3000/api/skills
+Content-Type: application/json
+
+{
+    "token": {{token}},
+    "id": 27,
+    "skill_name": "HTML"
+}
+
+### Contacts Api
+
+###
+GET  http://localhost:3000/api/contacts
+Content-Type: application/json
+
+{
+    "token": {{token}}
+}
+
+###
+POST  http://localhost:3000/api/contacts
+Content-Type: application/json
+
+{
+    "token": {{token}},
+    "contact_id": "f76fac97-fc51-4faf-82c8-6fa9adf546a1"
+}
+
+###
+DELETE   http://localhost:3000/api/contacts
+Content-Type: application/json
+
+{
+    "token": {{token}},
+    "contact_id": ["f76fac97-fc51-4faf-82c8-6fa9adf546a1"]
+}
+
+### Tags Api
+
+###
+GET  http://localhost:3000/api/tags
+Content-Type: application/json
+
+{
+    "token": {{token}}
+}
+
+###
+POST  http://localhost:3000/api/tags
+Content-Type: application/json
+
+{
+    "token": {{token}},
+    "tag_name": "Startup"
+}
+
+###
+DELETE   http://localhost:3000/api/tags
+Content-Type: application/json
+
+{
+    "token": {{token}},
+    "id": [4]
+}
+
+###
+PATCH   http://localhost:3000/api/tags
+Content-Type: application/json
+
+{
+    "token": {{token}},
+    "id": 10,
+    "tag_name": "Start Up"
+}
+
+### Users Skills Api
+
+###
+GET  http://localhost:3000/api/usersskills
+Content-Type: application/json
+
+{
+    "token": {{token}}
+}
+
+###
+POST  http://localhost:3000/api/usersskills
+Content-Type: application/json
+
+{
+    "token": {{token}},
+    "skill_id": 13,
+    "rating": 5 
+}
+
+###
+DELETE   http://localhost:3000/api/usersskills
+Content-Type: application/json
+
+{
+    "token": {{token}},
+    "skill_id": [14]
+}
+
+###
+PATCH   http://localhost:3000/api/usersskills
+Content-Type: application/json
+
+{
+    "token": {{token}},
+    "skill_id": 27,
+    "rating": 4
+}

@@ -1,0 +1,174 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #f5f5f5;
+  color: #2a2a2a;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 25rem;     
+    height: auto;    
+    margin-right: 0.5rem;
+}
+
+.logo h1 {
+    margin-left: 0.5rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.logo h1 span {
+    color: #009688;
+}
+
+.tagline {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #007399;
+    flex: 1;
+    margin-left: 2rem;
+}
+
+.user-icons button {
+  background: none;
+  border: none;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.tabs {
+  display: flex;
+  background: white;
+  border-bottom: 5px solid #009688;
+  padding: 0 2rem;
+  gap: 1.5rem;
+}
+
+.tab {
+  font-size: 1.4rem;
+  font-weight: bold;
+  background: none;
+  border: none;
+  padding: 1rem 0;
+  cursor: pointer;
+  color: #777;
+}
+
+.tab.active {
+  color: #009688;
+  border-bottom: 4px solid #009688;
+}
+
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.card table th, .card table td {
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.status {
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.status.applied { background: #c3ecfa; color: #007ca8; }
+.status.interview { background: #173f4f; color: white; }
+.status.rejected { background: #f88b88; color: white; }
+
+.chart-card canvas {
+  max-width: 100%;
+  margin: 1rem 0;
+}
+
+.legend {
+  list-style: none;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+.legend li {
+  margin-bottom: 0.3rem;
+}
+
+.legend-color {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 0.5rem;
+  border-radius: 3px;
+}
+
+.legend-color.applied { background: #c3ecfa; }
+.legend-color.interview { background: #173f4f; }
+.legend-color.second-interview { background: #97bbff; }
+.legend-color.offer { background: #c3f0d7; }
+.legend-color.rejected { background: #f88b88; }
+
+.skills-list span {
+  background: #efefef;
+  margin: 0.2rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.learning-item {
+  margin: 0.5rem 0;
+}
+
+.progress {
+  background: #ddd;
+  height: 10px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 0.3rem;
+}
+
+.bar {
+  height: 100%;
+}
+
+.bar.ios { width: 80%; background: linear-gradient(to right, #00c6ff, #0072ff); }
+.bar.assembly { width: 40%; background: #888; }
+.bar.cobol { width: 70%; background: linear-gradient(to right, #84fab0, #8fd3f4); }
