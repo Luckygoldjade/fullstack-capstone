@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Job Entry</title>
+  <link rel="stylesheet" href="/css/applications.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <img src="/assets/images/logo.JPG" alt="Jobscript Logo">
+    </div>
+    <div class="tagline">It's your career, version-controlled.</div>
+    <div class="user-icons">
+      <button><img src="/assets/images/profile.JPG" height="80vw" alt="Mail"></button>
+      <button><img src="/assets/images/settings.JPG" height="80vw" alt="Settings"></button>
+    </div>
+  </header>
+
+  <nav class="tabs">
+  <button class="tab"><a href="/">Home</a></button>
+  <button class="tab"><a href="/dashboard">Dashboard</a></button>
+  <button class="tab"><a href="/jobs">Job List</a></button>
+  <button class="tab active"><a href="/jobs/create">Job Entry</a></button>
+  <button class="tab"><a href="/jobsskills">Job Skills</a></button>
+  <button class="tab"><a href="/skills">User Skills</a></button>
+  <button class="tab"><a href="/contacts">User Contacts</a></button>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Add New Job</h2>
+      <form action="/api/jobs" method="POST" class="sideByside">
+        <fieldset>
+          <legend>Enter Job Details</legend>
+
+          <label for="title" class="required">Job Title</label>
+          <input type="text" name="title" id="title" required placeholder="Job Title" list="suggested-titles"/>
+          <datalist id="suggested-titles">
+            <option value="">--Select--</option>
+            <option value="Software Engineer">Software Engineer</option>
+            <option value="Project Manager">Project Manager</option>
+            <option value="Data Analyst">Data Analyst</option>
+            <option value="Web Developer">Web Developer</option>
+            <option value="UX Designer">UX Designer</option>
+          </datalist >
+
+          <label for="status" class="required">Status</label>
+          <input type="text" name="status" id="status" required placeholder="Applied" list="suggested-status"/>
+          <datalist id="suggested-status">
+            <option value="">--Select--</option>
+            <option value="Applied">Applied</option>
+            <option value="Interview">Interview</option>
+            <option value="2nd Interview">2nd Interview</option>
+            <option value="Offer">Offer</option>
+            <option value="Rejected">Rejected</option>
+          </datalist >
+
+          <label for="salary" class="required">Salary</label>
+          <input type="text" name="salary" id="salary" required placeholder="Salary"/>
+
+          <label for="benefits">Benefits</label>
+          <input type="text" name="benefits" id="benefits" placeholder="e.g., Health insurance, PTO" list="suggested-benefits" multiple/>
+          <datalist id="suggested-benefits">
+            <option value="">--Select--</option>
+            <option value="Health insurance">Health insurance</option>
+            <option value="Retirement plan">Retirement plan</option>
+            <option value="Paid time off">Paid time off</option>
+            <option value="Flexible hours">Flexible hours</option>
+            <option value="Remote work">Remote work</option>
+          </datalist>
+
+          <label for="location">Location</label>
+          <input type="text" name="location" id="location" required placeholder="Location" list="suggested-locations" multiple/>
+          <datalist id="suggested-locations">
+            <option value="">--Select--</option>
+            <option value="New York">New York</option>
+            <option value="San Francisco">San Francisco</option>
+            <option value="Los Angeles">Los Angeles</option>
+            <option value="Chicago">Chicago</option>
+            <option value="Seattle">Seattle</option>
+            <option value="Austin">Austin</option>
+          </datalist>
+
+          <label for="url">Job URL</label>
+          <input type="text" name="url" id="url" required placeholder="https://..." />
+
+          <label for="description">Description</label>
+          <textarea name="description" id="description" rows="5" cols="35" placeholder="Describe the job"></textarea>
+
+          <label for="date_posted">Date Posted</label>
+          <input type="date" name="date_posted" id="date_posted" required />
+
+          <label for="company_name">Company</label>
+          <input type="text" name="company_name" id="company_name" list="suggested-companies"/>
+          <datalist id="suggested-companies">
+            <% companies.forEach(function(company) 
+              { %> <option value="<%= company.name %>"> <% })
+            %>
+          </datalist>
+
+          <label for="skills">Skills (hold Ctrl to select multiple)</label>
+          <select name="skills" id="skills" multiple>
+            <% skills.forEach(function(skill) { %>
+              <option value="<%= skill.skill_name %>"><%= skill.skill_name %></option>
+            <% }); %>
+          </select>
+
+          <label for="tags">Tags (hold Ctrl to select multiple)</label>
+          <select name="tags" id="tags" multiple>
+            <% tags.forEach(function(tag) { %>
+              <option value="<%= tag.tag_name %>"><%= tag.tag_name %></option>
+            <% }); %>
+          </select>
+
+        </fieldset>
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Job Application Tracker</p>
+  </footer>
+</body>
+</html>

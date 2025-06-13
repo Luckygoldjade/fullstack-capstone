@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jobscript Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/chart.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <img src="assets/logo.svg" alt="Jobscript Logo">
+      <h1><span>Job</span>script</h1>
+    </div>
+    <div class="tagline">It’s your career, version-controlled.</div>
+    <div class="user-icons">
+      <button><img src="assets/user-icon.svg" alt="Profile"></button>
+      <button><img src="assets/settings-icon.svg" alt="Settings"></button>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <div class="card job-apps">
+      <h2>Job Applications <a href="#">View all</a></h2>
+      <table>
+        <thead>
+          <tr><th>Position</th><th>Company</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Software Engineer</td><td>Tech.iOS</td><td><span class="status applied">Applied</span></td></tr>
+          <tr><td>Software Engineer</td><td>StackleLack</td><td><span class="status applied">Applied</span></td></tr>
+          <tr><td>Web Developer I</td><td>SpyderWeb</td><td><span class="status interview">Interview</span></td></tr>
+          <tr><td>Data Analyst Inter.</td><td>Datafi</td><td><span class="status rejected">Rejected</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card chart-card">
+      <h2>Applications by Status</h2>
+      <canvas id="statusChart"></canvas>
+      <ul class="legend">
+        <li><span class="legend-color applied"></span> Applied: 10</li>
+        <li><span class="legend-color interview"></span> Interview: 4</li>
+        <li><span class="legend-color second-interview"></span> 2nd Interview: 2</li>
+        <li><span class="legend-color offer"></span> Offer: 1</li>
+        <li><span class="legend-color rejected"></span> Rejected: 6</li>
+      </ul>
+    </div>
+
+    <div class="card contacts">
+      <h2>Contacts <a href="#">View all</a></h2>
+      <ul>
+        <li>Martha Johnstone, WebCorp</li>
+        <li>Peter Lefleur, WebCorp</li>
+        <li>Edna Mode, ModeMade</li>
+        <li>Bob Parr, iNCREDIBLE</li>
+      </ul>
+    </div>
+
+    <div class="card skills">
+      <h2>Skills <a href="#">View all</a></h2>
+      <div class="skills-list">
+        <span>Kotlin</span><span>Python</span><span>Data Analysis</span><span>Javascript</span>
+        <span>GitHub</span><span>React</span><span>R</span><span>Matlab</span>
+      </div>
+    </div>
+
+    <div class="card learning">
+      <h2>Suggested Learning <a href="#">View all</a></h2>
+      <div class="learning-item">
+        <span>iOS</span>
+        <div class="progress"><div class="bar ios"></div></div>
+      </div>
+      <div class="learning-item">
+        <span>Assembly</span>
+        <div class="progress"><div class="bar assembly"></div></div>
+      </div>
+      <div class="learning-item">
+        <span>Cobol</span>
+        <div class="progress"><div class="bar cobol"></div></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
