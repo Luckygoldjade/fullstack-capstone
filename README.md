@@ -6,12 +6,12 @@ This repository contains my independent copy of a collaborative capstone project
 
 ## Project Overview
 
-GitHub Repo: https://github.com/Luckygoldjade/fullstack-capstone.git
+GitHub Repo: https://github.com/Luckygoldjade/fullstack-capstone.git<br>
 Working Demo on render: https://cs467-dvfe.onrender.com/
 
 ## Demo Video - Capstone Project Demo — Full-Stack Web App
 
-A brief demo of my senior capstone project: a full-stack web application built with Node.js, Express, and PostgreSQL.
+A brief demo of my senior capstone project: a full-stack web application built with Node.js, Express, and PostgreSQL<br>
 Watch the full walkthrough on YouTube: https://youtu.be/I9GOijkri-I
 
 ## Final Report
@@ -20,9 +20,9 @@ Final Report: [View Final Report (PDF)](docs/cs467_jobscript_kuang_jaeger_chan_f
 
 ## Features:
 
-User authentication and role-based access control
-Dynamic data display from PostgreSQL
-RESTful API integration
+User authentication and role-based access control<br>
+Dynamic data display from PostgreSQL<br>
+RESTful API integration<br>
 CRUD operations with input validation
 
 ## Collaborators
@@ -32,9 +32,9 @@ This repo is a personalized, independently maintained version created for portfo
 
 ## Tech Stack
 
-Frontend: HTML/CSS/JavaScript
-Backend: Node.js, Express
-Database: PostgreSQL (via Supabase)
+- Frontend: HTML/CSS/JavaScript
+- Backend: Node.js, Express
+- Database: PostgreSQL (via Supabase)
 
 ### Instructions on running the app:
 
