@@ -1,33 +1,52 @@
-# CS467
+# Capstone Project: Job Tracker App called Jobscript
 
-Capstone Project Demo — Full-Stack Web App
+Jobscript is a web-based application designed to streamline job hunting by helping users organize and manage their career pursuits in one centralized platform. Jobscript provides tools to track applications, maintain networking contacts, and monitor growth in key technical skills. Its intuitive layout and targeted features make it ideal for job seekers who want a clearer view of their progress and greater control over their career planning.
+
+This repository contains my independent copy of a collaborative capstone project completed as part of the Computer Science program at Oregon State University.
+
+## Project Overview
+
+GitHub Repo: https://github.com/Luckygoldjade/fullstack-capstone.git
+Working Demo on render: https://cs467-dvfe.onrender.com/
+
+## Demo Video - Capstone Project Demo — Full-Stack Web App
 
 A brief demo of my senior capstone project: a full-stack web application built with Node.js, Express, and PostgreSQL.
+Watch the full walkthrough on YouTube: https://youtu.be/I9GOijkri-I
 
-Stack: JavaScript · Express · PostgreSQL · SQL · Supabase (if used)
-PDF Report: [link]
-GitHub Repo: https://github.com/Luckygoldjade/fullstack-capstone.git
-Demo on render: TBD
+## Final Report
 
-Features:
+Final Report: [View Final Report (PDF)](docs/cs467_jobscript_kuang_jaeger_chan_final_report_060425_v01.pdf)
 
-User login & role-based access
+## Features:
 
-API and database integration
+User authentication and role-based access control
+Dynamic data display from PostgreSQL
+RESTful API integration
+CRUD operations with input validation
 
-Responsive UI
+## Collaborators
 
-Originally developed for my B.S. in Computer Science (2025) at Oregon State University
+This project was originally developed in collaboration with teammates Jacky Kuang, Katherine Jaeger, and myself. 
+This repo is a personalized, independently maintained version created for portfolio and resume purposes.
 
+## Tech Stack
 
+Frontend: HTML/CSS/JavaScript
+Backend: Node.js, Express
+Database: PostgreSQL (via Supabase)
 
-# Instructions on running the app:
+### Instructions on running the app:
+
+Installation and Instructions: [Installation and Instructions (PDF)](docs/cs467_jobscript_Installation_and_Instructions_060425_v01.pdf)
 
 #### Clone the repo with the command:
+
 -  git clone https://github.com/Luckygoldjade/fullstack-capstone.git
 -  git pull origin main
 
 #### To run the app
+
 - Change the working directory to the Backend folder with the command:
   - cd Backend/
 - Install all the dependencies with the command:
