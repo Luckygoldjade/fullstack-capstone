@@ -1,9 +1,30 @@
 # CS467
 
+Capstone Project Demo — Full-Stack Web App
+
+A brief demo of my senior capstone project: a full-stack web application built with Node.js, Express, and PostgreSQL.
+
+Stack: JavaScript · Express · PostgreSQL · SQL · Supabase (if used)
+PDF Report: [link]
+GitHub Repo: https://github.com/Luckygoldjade/fullstack-capstone.git
+Demo on render: TBD
+
+Features:
+
+User login & role-based access
+
+API and database integration
+
+Responsive UI
+
+Originally developed for my B.S. in Computer Science (2025) at Oregon State University
+
+
+
 # Instructions on running the app:
 
 #### Clone the repo with the command:
--  git clone https://github.com/Jackua/CS467.git
+-  git clone https://github.com/Luckygoldjade/fullstack-capstone.git
 -  git pull origin main
 
 #### To run the app
@@ -12,6 +33,7 @@
 - Install all the dependencies with the command:
   - npm install
 - Create an .env in the Backend folder with the filled variables PORT, SUPABASE_URL, and SUPABASE_ANON_KEY.
+- A dot_env example is in docs/ directory.
 - Start the server while within the Backend folder with the command:
   - node app.js
 
