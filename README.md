@@ -81,14 +81,14 @@ Contacts page - /contacts <br>
 Users can view, add, edit,and delete contacts
 
 ## Screenshots
-[ERD-Entity Relationship Diagram (PNG)](docs/screenshots/SQL_erd_diagram_062425_v02.png)
-[Login (PNG)](docs/screenshots/jobscript_login_1.png)
-[Signup (PNG)](docs/screenshots/jobscript_signup_3.png)
-[Dashboard (PNG)](docs/screenshots/jobscript_dashboard_1.png)
-[Job List (PNG)](docs/screenshots/jobscript_job_list_1.png)
-[Job Entry (PNG)](docs/screenshots/jobscript_job_entry_1.png)
-[Job Skills (PNG)](docs/screenshots/jobscript_job_skills_1.png)
-[User Skills (PNG)](docs/screenshots/jobscript_user_skills_1.png)
-[User Contacts (PNG)](docs/screenshots/jobscript_user_contacts_1.png)
+[ERD-Entity Relationship Diagram (PNG)](docs/screenshots/SQL_erd_diagram_062425_v02.png)<br>
+[Login (PNG)](docs/screenshots/jobscript_login_1.png)<br>
+[Signup (PNG)](docs/screenshots/jobscript_signup_3.png)<br>
+[Dashboard (PNG)](docs/screenshots/jobscript_dashboard_1.png)<br>
+[Job List (PNG)](docs/screenshots/jobscript_job_list_1.png)<br>
+[Job Entry (PNG)](docs/screenshots/jobscript_job_entry_1.png)<br>
+[Job Skills (PNG)](docs/screenshots/jobscript_job_skills_1.png)<br>
+[User Skills (PNG)](docs/screenshots/jobscript_user_skills_1.png)<br>
+[User Contacts (PNG)](docs/screenshots/jobscript_user_contacts_1.png)<br>
 
 ## 
