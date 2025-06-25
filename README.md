@@ -2,7 +2,7 @@
 
 Jobscript is a web-based application designed to streamline job hunting by helping users organize and manage their career pursuits in one centralized platform. Jobscript provides tools to track applications, maintain networking contacts, and monitor growth in key technical skills. Its intuitive layout and targeted features make it ideal for job seekers who want a clearer view of their progress and greater control over their career planning.
 
-This repository contains my independent copy of a collaborative capstone project completed as part of the Computer Science program at Oregon State University.
+This repository contains my independent copy of a collaborative capstone project completed as part of the Computer Science program.
 
 ## Project Overview
 
@@ -27,25 +27,25 @@ CRUD operations with input validation
 
 ## Collaborators
 
-This project was originally developed in collaboration with teammates Jacky Kuang, Katherine Jaeger, and myself. 
+This project was originally developed in collaboration with teammates Jacky K, Katherine J, and myself. 
 This repo is a personalized, independently maintained version created for portfolio and resume purposes.
 
 ## Tech Stack
-
-- Frontend: HTML/CSS/JavaScript
+- Server-side rendering (SSR) with embedded Javascript (EJS)
+- Frontend: HTML/CSS/JavaScript, embedded Javascript (EJS)
 - Backend: Node.js, Express
 - Database: PostgreSQL (via Supabase)
 
-### Instructions on running the app:
+## Instructions on running the app:
 
 Installation and Instructions: [Installation and Instructions (PDF)](docs/cs467_jobscript_Installation_and_Instructions_060425_v01.pdf)
 
-#### Clone the repo with the command:
+### Clone the repo with the command:
 
 -  git clone https://github.com/Luckygoldjade/fullstack-capstone.git
 -  git pull origin main
 
-#### To run the app
+### To run the app
 
 - Change the working directory to the Backend folder with the command:
   - cd Backend/
@@ -56,7 +56,7 @@ Installation and Instructions: [Installation and Instructions (PDF)](docs/cs467_
 - Start the server while within the Backend folder with the command:
   - node app.js
 
-#### Routes
+### Routes
 
 Home page - / <br>
 Users are able to login, register, and signout
@@ -79,3 +79,16 @@ Users can view, add, edit,and delete skills related to their own jobs
 
 Contacts page - /contacts <br>
 Users can view, add, edit,and delete contacts
+
+## Screenshots
+[ERD-Entity Relationship Diagram (PNG)](docs/screenshots/SQL_erd_diagram_062425_v02.png)
+[Login (PNG)](docs/screenshots/jobscript_login_1.png)
+[Signup (PNG)](docs/screenshots/jobscript_signup_3.png)
+[Dashboard (PNG)](docs/screenshots/jobscript_dashboard_1.png)
+[Job List (PNG)](docs/screenshots/jobscript_job_list_1.png)
+[Job Entry (PNG)](docs/screenshots/jobscript_job_entry_1.png)
+[Job Skills (PNG)](docs/screenshots/jobscript_job_skills_1.png)
+[User Skills (PNG)](docs/screenshots/jobscript_user_skills_1.png)
+[User Contacts (PNG)](docs/screenshots/jobscript_user_contacts_1.png)
+
+## 
